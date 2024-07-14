@@ -1,19 +1,19 @@
 //Temporary Data
 const mockData = [
     {
-        "Title": "Title 1",
+        "Title": "Alex Sponsor Payment Due Date",
         "Name": "Alex",
-        "Email": "Some@email.com",
+        "Email": "alex@email.com",
         "UserType": "Sponsor",
         "Priority": "High",
-        "Description": "bla bla bla",
+        "Description": "Last payment was made on 3/4/2024 through online banking into the system's account",
         "DueDate": "31/3/2024",
         "Time": "13:00"
     },
     {
-        "Title": "Title 2",
+        "Title": "Alex Patient Payment Due Date",
         "Name": "Alex",
-        "Email": "Another@email.com",
+        "Email": "alex@email.com",
         "UserType": "Patient",
         "Priority": "High",
         "Description": "State thyne business",
@@ -93,6 +93,14 @@ function loadMockData() { //[Temporary]
     // Clear existing content
     //container.innerHTML = '';
     
+    const maxDescriptionLength = 100; // Maximum length of Description before truncation
+
+    // Truncate Description if it exceeds max length
+    let description = item.Description;
+    if (description.length > maxDescriptionLength) {
+        description = description.substring(0, maxDescriptionLength) + ' ...';
+    }
+
     const itemBox = document.createElement('div');
     itemBox.classList.add('reminder-box');
 
@@ -107,7 +115,7 @@ function loadMockData() { //[Temporary]
         </div>
         <div class="reminder-details">
             <p><strong>Name:</strong> ${item.Name}</p>
-            <p><strong class="underline-label">Description:</strong> ${item.Description}</p>
+            <p><strong class="reminder-description">Description:</strong> ${description}</p>
             <p><strong>Time:</strong> ${item.Time}</p>
         </div>
         <div class="reminder-footer">
@@ -123,6 +131,7 @@ function loadMockData() { //[Temporary]
     `;
 
     container.appendChild(itemBox);
+
 }
 
 //When trash icon of Reminder Page is clicked [Temporary]
@@ -135,7 +144,7 @@ document.addEventListener('click', function(event) {
     }
 });
 
-//When Create New Reminder is Click [Temporary]
+//When Create New Reminder is clicked [Temporary]
 document.addEventListener('click', function(event) {
     if(event.target && event.target.classList.contains('create-button')) {
         if(curData < mockData.length) loadMockData();
@@ -143,6 +152,11 @@ document.addEventListener('click', function(event) {
 });
 
 
-//loadMockData();
+/* Temporary or purely for aestethic purposes */
+/* ===================================================================== */
+
+
+
+loadMockData();
 updateDateTime();
 setInterval(updateDateTime, 1000);

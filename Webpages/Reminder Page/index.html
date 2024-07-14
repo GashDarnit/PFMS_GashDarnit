@@ -23,13 +23,15 @@
         <!-- Container for both button and search bar -->
         <div class="action-bar">
             <!-- Create New Reminder button -->
-            <button class="create-button">Create New Reminder</button>
+            <button class="create-reminder-button">Create New Reminder</button>
 
             <!-- Search bar -->
             <div class="search-container">
-                <input type="text" placeholder="Search" class="hs-search-field__input">
+                <input type="text" placeholder="Search" class="reminder-search-field-input">
             </div>
         </div>
+
+
 
         
         
@@ -52,7 +54,7 @@
                 
                 <div class="reminder-details">
                     <p><strong>Name:</strong> ${item.Name}</p>
-                    <p><strong class="underline-label">Description:</strong> ${item.Description}</p>
+                    <p><strong class="reminder-description">Description:</strong> ${item.Description}</p>
                     <p><strong>Time:</strong> ${item.Time}</p>
                 </div>
                 
