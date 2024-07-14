@@ -19,11 +19,50 @@ const mockData = [
         "Description": "State thyne business",
         "DueDate": "31/3/2024",
         "Time": "13:00"
+    },
+    {
+        "Title": "Title 3",
+        "Name": "Aleph",
+        "Email": "aleph@email.com",
+        "UserType": "Sponsor",
+        "Priority": "Medium",
+        "Description": "Myn own businesseth beseth thee goodeth",
+        "DueDate": "30/4/2024",
+        "Time": "15:00"
+    },
+    {
+        "Title": "Title 4",
+        "Name": "Ayin",
+        "Email": "ayin@email.com",
+        "UserType": "Patient",
+        "Priority": "Medium",
+        "Description": "Surely thy jest, myn businesseth hast thou thought've?",
+        "DueDate": "6/9/2024",
+        "Time": "17:00"
+    },
+    {
+        "Title": "Title 5",
+        "Name": "Alpha",
+        "Email": "alpha@email.com",
+        "UserType": "Sponsor",
+        "Priority": "Low",
+        "Description": "State thyne business wanteth to knoweth myn own businesseth",
+        "DueDate": "7/7/2024",
+        "Time": "19:00"
+    },
+    {
+        "Title": "Title 6",
+        "Name": "Aluminium",
+        "Email": "aluminium@email.com",
+        "UserType": "Patient",
+        "Priority": "Low",
+        "Description": "Myn own businesseth shant be besseth by thee, thus flee!",
+        "DueDate": "13/3/2024",
+        "Time": "13:00"
     }
-    // Add more objects as needed
 ];
 
-const curData = 0;
+var curData = 0;
 
 
 function updateDateTime() {
@@ -39,73 +78,71 @@ function updateDateTime() {
     var timeFormatter = new Intl.DateTimeFormat('en-US', timeOptions);
     var formattedTime = timeFormatter.format(current);
 
-    document.getElementById('date').textContent = 'Date: ' + formattedDate;
-    document.getElementById('time').textContent = 'Time: ' + formattedTime;
+    document.getElementById('date').innerHTML = '<strong>Date:</strong> ' + formattedDate;
+    document.getElementById('time').innerHTML = '<strong>Time:</strong> ' + formattedTime;
 }
 
 
 /* ------------------------------------------------------------------------------------------------------- */
 //Reminder Page
-function loadMockData() {
+function loadMockData() { //[Temporary]
     const container = document.querySelector('.reminder-boxes');
-
+    var item = mockData[curData];
+    curData++;
+    
     // Clear existing content
-    container.innerHTML = '';
+    //container.innerHTML = '';
     
-    
-    // Iterate over each data item
-    mockData.forEach(item => {
-        // Create a new item box element
-        const itemBox = document.createElement('div');
-        itemBox.classList.add('reminder-box');
+    const itemBox = document.createElement('div');
+    itemBox.classList.add('reminder-box');
 
-        // Construct HTML content for the item box using template literals
-        itemBox.innerHTML = `
-           <div class="reminder-header">
-                <div class="reminder-title">${item.Title}</div>
-                <div class="reminder-type-priority">  
-                    <span class="reminder-user-type">${item.UserType}</span>
-                    <span class="reminder-user-priority">${item.Priority}</span>
-                </div>
-                <div class="reminder-due-date">${item.DueDate}</div>
+    itemBox.innerHTML = `
+        <div class="reminder-header">
+            <div class="reminder-title">${item.Title}</div>
+            <div class="reminder-type-priority">  
+                <span class="reminder-user-type user-type-${item.UserType}">${item.UserType}</span>
+                <span class="reminder-user-priority priority-${item.Priority}">${item.Priority}</span>
             </div>
-            
-            <div class="reminder-details">
-                <p>Name: ${item.Name}</p>
-                <p>Description: ${item.Description}</p>
-                <p>Time: ${item.Time}</p>
+            <div class="reminder-due-date"><strong>Due Date:</strong> ${item.DueDate}</div>
+        </div>
+        <div class="reminder-details">
+            <p><strong>Name:</strong> ${item.Name}</p>
+            <p><strong class="underline-label">Description:</strong> ${item.Description}</p>
+            <p><strong>Time:</strong> ${item.Time}</p>
+        </div>
+        <div class="reminder-footer">
+            <div class="reminder-email">
+                <p><strong>Email:</strong> ${item.Email}</p>
             </div>
-            
-            <div class="reminder-footer">
-                <div class="reminder-email">
-                    <p>Email: ${item.Email}</p>
-                </div>
-                
-                <div class="reminder-delete">
-                    <button class="reminder-delete-button">
-                        <img src="images/trash-bin.png" alt="Delete" class="trash-icon">
-                    </button>
-                </div>
+            <div class="reminder-delete">
+                <button class="reminder-delete-button">
+                    <img src="images/trash-bin.png" alt="Delete" class="trash-icon">
+                </button>
             </div>
-        `;
-        
-        
-        // Append the item box to the container
-        container.appendChild(itemBox);
-    });
+        </div>
+    `;
+
+    container.appendChild(itemBox);
 }
 
-//When trash icon of Reminder Page is clicked
+//When trash icon of Reminder Page is clicked [Temporary]
 document.addEventListener('click', function(event) {
     if(event.target && event.target.classList.contains('trash-icon')) {
         const itemBox = event.target.closest('.reminder-box');
         
-        //if (itemBox) itemBox.remove();
-        if(itemBox) console.log("Item-deleted");
+        if (itemBox) itemBox.remove();
+        //if(itemBox) console.log("Item-deleted");
+    }
+});
+
+//When Create New Reminder is Click [Temporary]
+document.addEventListener('click', function(event) {
+    if(event.target && event.target.classList.contains('create-button')) {
+        if(curData < mockData.length) loadMockData();
     }
 });
 
 
-loadMockData();
+//loadMockData();
 updateDateTime();
 setInterval(updateDateTime, 1000);

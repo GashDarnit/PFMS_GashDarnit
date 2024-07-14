@@ -13,8 +13,8 @@
         <div class="info-bar">
             <div id="file-path">Home &gt; Reminder page</div>
             <div id="date-time">
-                <span id="date">Date: 17 April 2024</span>
-                <span id="time">Time: 14:42</span>
+                <span id="date">Date: </span>
+                <span id="time">Time: </span>
             </div>
         </div>
         
@@ -36,25 +36,30 @@
         <!-- Reminder list -->
         <div class="reminder-boxes">
             
+            <!--
             <div class="reminder-box">
+            
+            
                 <div class="reminder-header">
                     <div class="reminder-title">${item.Title}</div>
                     <div class="reminder-type-priority">  
-                        <span class="reminder-user-type">${item.UserType}</span>
-                        <span class="reminder-user-priority">${item.Priority}</span>
+                        <span class="reminder-user-type user-type-${item.UserType}">${item.UserType}</span>
+                        <span class="reminder-user-priority priority-${item.Priority}">${item.Priority}</span>
                     </div>
-                    <div class="reminder-due-date">${item.DueDate}</div>
+                    <div class="reminder-due-date"><strong>Due Date:</strong> ${item.DueDate}</div>
                 </div>
                 
+                
                 <div class="reminder-details">
-                    <p>Name: ${item.Name}</p>
-                    <p>Description: ${item.Description}</p>
-                    <p>Time: ${item.Time}</p>
+                    <p><strong>Name:</strong> ${item.Name}</p>
+                    <p><strong class="underline-label">Description:</strong> ${item.Description}</p>
+                    <p><strong>Time:</strong> ${item.Time}</p>
                 </div>
+                
                 
                 <div class="reminder-footer">
                     <div class="reminder-email">
-                        <p>Email: ${item.Email}</p>
+                        <p><strong>Email:</strong> ${item.Email}</p>
                     </div>
                     
                     <div class="reminder-delete">
@@ -64,10 +69,12 @@
                     </div>
                 </div>
                 
+                
             </div>
-
-            
+            -->
         </div>
+
+
         
         
         
