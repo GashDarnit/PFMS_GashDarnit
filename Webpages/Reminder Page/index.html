@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Reminder Page</title>
+</head>
+<body>
+    <div class="page-wrapper"> 
+    
+        <!-- Header div -->
+        <div class="info-bar">
+            <div id="file-path">Home &gt; Reminder page</div>
+            <div id="date-time">
+                <span id="date">Date: 17 April 2024</span>
+                <span id="time">Time: 14:42</span>
+            </div>
+        </div>
+        
+        
+        
+        <!-- Container for both button and search bar -->
+        <div class="action-bar">
+            <!-- Create New Reminder button -->
+            <button class="create-button">Create New Reminder</button>
+
+            <!-- Search bar -->
+            <div class="search-container">
+                <input type="text" placeholder="Search" class="hs-search-field__input">
+            </div>
+        </div>
+
+        
+        
+        <!-- Reminder list -->
+        <div class="reminder-boxes">
+            
+            <div class="reminder-box">
+                <div class="reminder-header">
+                    <div class="reminder-title">${item.Title}</div>
+                    <div class="reminder-type-priority">  
+                        <span class="reminder-user-type">${item.UserType}</span>
+                        <span class="reminder-user-priority">${item.Priority}</span>
+                    </div>
+                    <div class="reminder-due-date">${item.DueDate}</div>
+                </div>
+                
+                <div class="reminder-details">
+                    <p>Name: ${item.Name}</p>
+                    <p>Description: ${item.Description}</p>
+                    <p>Time: ${item.Time}</p>
+                </div>
+                
+                <div class="reminder-footer">
+                    <div class="reminder-email">
+                        <p>Email: ${item.Email}</p>
+                    </div>
+                    
+                    <div class="reminder-delete">
+                        <button class="reminder-delete-button">
+                            <img src="images/trash-bin.png" alt="Delete" class="trash-icon">
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+
+            
+        </div>
+        
+        
+        
+        
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="logo-and-text-container">
+                    <img src="images/curtin-logo.png" alt="University Logo" class="footer-logo">
+                    <img src="images/rc-logo.png" alt="Organization Logo" class="footer-logo">
+                    <div class="copyright-text">
+                        <p>A community knowledge transfer project in collaboration with Miri Red Crescent</p>
+                        <p>&copy; 2024 My University Name. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
