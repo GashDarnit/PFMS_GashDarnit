@@ -85,7 +85,7 @@ function updateDateTime() {
 
 /* ------------------------------------------------------------------------------------------------------- */
 //Reminder Page
-function loadMockData() { //[Temporary]
+function loadMockData() {
     const container = document.querySelector('.reminder-boxes');
     var item = mockData[curData];
     curData++;
@@ -133,14 +133,16 @@ function loadMockData() { //[Temporary]
     container.appendChild(itemBox);
 }
 
+
 //Hide search filter by default
 function toggleVisibility() {
     var filterDiv = document.getElementById('reminder-filter');
     if (filterDiv.style.opacity === '0' || filterDiv.style.opacity === '') {
-        filterDiv.style.display = 'flex';  // Ensure flex is set
+        filterDiv.style.display = 'flex';
+        
         setTimeout(function() {
             filterDiv.classList.add('visible');
-        }, 10); // Delay to allow the display change to take effect
+        }, 10);
     }
 }
 
@@ -149,10 +151,28 @@ document.addEventListener('click', function(event) {
     if(event.target && event.target.classList.contains('trash-icon')) {
         const itemBox = event.target.closest('.reminder-box');
         
-        if (itemBox) itemBox.remove();
+        if (itemBox) {
+            // Apply disappear-text class to all text elements inside the reminder box
+            const textElements = itemBox.querySelectorAll('.reminder-header, .reminder-details, .reminder-footer');
+            textElements.forEach(element => {
+                element.classList.add('disappear-text');
+            });
+
+            itemBox.style.height = '0';
+            itemBox.style.padding = '0';
+            itemBox.style.marginBottom = '0';
+            itemBox.style.marginTop = '0';
+            itemBox.style.opacity = '0';
+
+            setTimeout(() => {
+                itemBox.remove();
+            }, 300);
+        }
         //if(itemBox) console.log("Item-deleted");
     }
 });
+
+
 
 //When Create New Reminder is clicked [Temporary]
 document.addEventListener('click', function(event) {

@@ -199,6 +199,17 @@ body {
 }
 
 /* Styling for each box */
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 .reminder-box {
     height: 120px;
     padding: 10px;
@@ -207,9 +218,17 @@ body {
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
     background-color: #ffffff;
     margin-bottom: 30px;
-    margin-top: 30px;
     width: 100%;
+    transition: height 0.3s ease, padding 0.3s ease, margin 0.3s ease, opacity 0.3s ease;
+    animation: slideIn 0.3s ease;
 }
+
+.reminder-box .disappear-text {
+    transition: opacity 0.2s ease;
+    opacity: 0;
+}
+
+
 
 
 /* reminder contents */
