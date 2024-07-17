@@ -11,7 +11,7 @@
     
         <!-- Header div -->
         <div class="info-bar">
-            <div id="file-path">Home &gt; Reminder page</div>
+            <div id="file-path"><a href="https://google.com">Home</a> &gt; Reminder</div>
             <div id="date-time">
                 <span id="date">Date: </span>
                 <span id="time">Time: </span>
@@ -27,11 +27,17 @@
 
             <!-- Search bar -->
             <div class="search-container">
-                <input type="text" placeholder="Search" class="reminder-search-field-input">
+                <input type="text" placeholder="Search" class="reminder-search-field-input" onfocus="toggleVisibility()">
             </div>
         </div>
-
-
+        
+        
+        <!-- Search Filter -->
+        <div id="reminder-filter" class="reminder-search-filter" style="display: none;">
+            <input type="text" placeholder="Title:" class="reminder-filter-title">
+            <input type="text" placeholder="Date:" class="reminder-filter-date">
+            <input type="text" placeholder="Priority Level:" class="reminder-filter-priority">
+        </div>
 
         
         

@@ -1,12 +1,12 @@
 //Temporary Data
 const mockData = [
     {
-        "Title": "Alex Sponsor Payment Due Date",
+        "Title": "Alex Sponsor Payment Due Date HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAAHHAHAHAHA",
         "Name": "Alex",
         "Email": "alex@email.com",
         "UserType": "Sponsor",
         "Priority": "High",
-        "Description": "Last payment was made on 3/4/2024 through online banking into the system's account",
+        "Description": "Last payment was made on 3/4/2024 through online banking into the system's account hahahahahahahahahahahahahahahahahahah",
         "DueDate": "31/3/2024",
         "Time": "13:00"
     },
@@ -93,7 +93,7 @@ function loadMockData() { //[Temporary]
     // Clear existing content
     //container.innerHTML = '';
     
-    const maxDescriptionLength = 100; // Maximum length of Description before truncation
+    const maxDescriptionLength = 100; //Maximum length of Description before truncation
 
     // Truncate Description if it exceeds max length
     let description = item.Description;
@@ -131,7 +131,17 @@ function loadMockData() { //[Temporary]
     `;
 
     container.appendChild(itemBox);
+}
 
+//Hide search filter by default
+function toggleVisibility() {
+    var filterDiv = document.getElementById('reminder-filter');
+    if (filterDiv.style.opacity === '0' || filterDiv.style.opacity === '') {
+        filterDiv.style.display = 'flex';  // Ensure flex is set
+        setTimeout(function() {
+            filterDiv.classList.add('visible');
+        }, 10); // Delay to allow the display change to take effect
+    }
 }
 
 //When trash icon of Reminder Page is clicked [Temporary]
@@ -146,15 +156,15 @@ document.addEventListener('click', function(event) {
 
 //When Create New Reminder is clicked [Temporary]
 document.addEventListener('click', function(event) {
-    if(event.target && event.target.classList.contains('create-button')) {
+    if(event.target && event.target.classList.contains('create-reminder-button')) {
         if(curData < mockData.length) loadMockData();
     }
 });
 
 
+
 /* Temporary or purely for aestethic purposes */
 /* ===================================================================== */
-
 
 
 loadMockData();
