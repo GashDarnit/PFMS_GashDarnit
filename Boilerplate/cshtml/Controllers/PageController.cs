@@ -2,7 +2,7 @@
 
 namespace PFMS.Controllers
 {
-    public class ReminderController : Controller
+    public class PageController : Controller
     {
         public IActionResult Page()
         {
