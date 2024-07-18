@@ -1,14 +1,21 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "";
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reminder.css">
+    <link rel="stylesheet" href="~/css/reminder.css">
     <title>Reminder Page</title>
 </head>
 <body>
-    <div class="page-wrapper"> 
-    
+    <div class="page-wrapper">
+
         <!-- Header div -->
         <div class="info-bar">
             <div id="file-path"><a href="https://google.com">Home</a> &gt; Reminder</div>
@@ -17,9 +24,9 @@
                 <span id="time">Time: </span>
             </div>
         </div>
-        
-        
-        
+
+
+
         <!-- Container for both button and search bar -->
         <div class="action-bar">
             <!-- Create New Reminder button -->
@@ -30,8 +37,8 @@
                 <input type="text" placeholder="Search" class="reminder-search-field-input" onfocus="toggleVisibility()">
             </div>
         </div>
-        
-        
+
+
         <!-- Search Filter -->
         <div id="reminder-filter" class="reminder-search-filter" style="display: none;">
             <input type="text" placeholder="Title:" class="reminder-filter-title">
@@ -39,24 +46,23 @@
             <input type="text" placeholder="Priority Level:" class="reminder-filter-priority">
         </div>
 
-        
-        
+
+
         <!-- Reminder list -->
         <div class="reminder-boxes">
-            
         </div>
 
 
-        
-        
-        
-        
+
+
+
+
         <!-- Footer -->
         <footer class="site-footer">
             <div class="footer-content">
                 <div class="logo-and-text-container">
-                    <img src="images/curtin-logo.png" alt="University Logo" class="footer-logo">
-                    <img src="images/rc-logo.png" alt="Organization Logo" class="footer-logo">
+                    <img src="~/images/reminder/curtin-logo.png" alt="University Logo" class="footer-logo">
+                    <img src="~/images/reminder/rc-logo.png" alt="Organization Logo" class="footer-logo">
                     <div class="copyright-text">
                         <p>A community knowledge transfer project in collaboration with Miri Red Crescent</p>
                         <p>&copy; 2024 Curtin University Malaysia. All rights reserved.</p>
@@ -64,9 +70,9 @@
                 </div>
             </div>
         </footer>
-        
+
     </div>
 
-    <script src="reminder.js"></script>
+    <script src="~/js/reminder.js"></script>
 </body>
 </html>
